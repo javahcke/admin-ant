@@ -14,7 +14,7 @@
             </a-col>
             <a-col :span="6" :pull="18">
                 <div>
-                    <span>机构树1</span>
+                    <span>机构树</span>
                 </div>
             </a-col>
             </a-row>
