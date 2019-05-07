@@ -166,7 +166,6 @@ export default {
         state.loginType = 0
       } else {
         state.loginType = 1
-        callback()
       }
       callback()
     },
