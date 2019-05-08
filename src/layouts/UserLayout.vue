@@ -4,13 +4,13 @@
       <div class="top">
         <div class="header">
           <a href="/">
-            <img src="~@/assets/logo.svg" class="logo" alt="logo">
-            <span class="title">Ant Design</span>
+            <!-- <img src="~@/assets/logo.svg" class="logo" alt="logo"> -->
+            <span class="title">企业客户</span>
           </a>
         </div>
-        <div class="desc">
+        <!-- <div class="desc">
           Ant Design 是西湖区最具影响力的 Web 设计规范
-        </div>
+        </div> -->
       </div>
 
       <route-view></route-view>

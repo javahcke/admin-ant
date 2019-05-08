@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import { UserLayout, BasicLayout, RouteView, BlankLayout, PageView } from '@/layouts'
 import { bxAnaalyse } from '@/core/icons'
-
+let qvanxian = 'user';
 export const asyncRouterMap = [
   {
     path: '/',
@@ -26,6 +26,7 @@ export const asyncRouterMap = [
           },
           // 外部链接
           {
+
             path: 'https://www.baidu.com/',
             name: 'Monitor',
             meta: { title: '监控页（外部）', target: '_blank' }
@@ -255,66 +256,8 @@ export const asyncRouterMap = [
           }
         ]
       },
-      //用户管理   
-      {
-        path: '/system',
-        name: 'system',
-        component: PageView,
-        meta: { title: '系统管理', icon: 'slack', permission: [ 'user' ] },
-        redirect: '/system/user',
-        children: [
-          {
-            path: '/system/user',
-            name: 'systemuser',
-            component: () => import('@/views/system/user'),
-            meta: { title: '用户管理', icon: 'tool', keepAlive: true, permission: [ 'user' ] }
-          }
-          // {
-          //   path: '/other/list',
-          //   component: RouteView,
-          //   meta: { title: '业务布局', icon: 'layout', permission: [ 'support' ] },
-          //   redirect: '/other/list/tree-list',
-          //   children: [
-          //     {
-          //       path: '/other/list/tree-list',
-          //       name: 'TreeList',
-          //       component: () => import('@/views/other/TreeList'),
-          //       meta: { title: '树目录表格', keepAlive: true }
-          //     },
-          //     {
-          //       path: '/other/list/edit-table',
-          //       name: 'EditList',
-          //       component: () => import('@/views/other/TableInnerEditList'),
-          //       meta: { title: '内联编辑表格', keepAlive: true }
-          //     },
-          //     {
-          //       path: '/other/list/user-list',
-          //       name: 'UserList',
-          //       component: () => import('@/views/other/UserList'),
-          //       meta: { title: '用户列表', keepAlive: true }
-          //     },
-          //     {
-          //       path: '/other/list/role-list',
-          //       name: 'RoleList',
-          //       component: () => import('@/views/other/RoleList'),
-          //       meta: { title: '角色列表', keepAlive: true }
-          //     },
-          //     {
-          //       path: '/other/list/system-role',
-          //       name: 'SystemRole',
-          //       component: () => import('@/views/role/RoleList'),
-          //       meta: { title: '角色列表2', keepAlive: true }
-          //     },
-          //     {
-          //       path: '/other/list/permission-list',
-          //       name: 'PermissionList',
-          //       component: () => import('@/views/other/PermissionList'),
-          //       meta: { title: '权限列表', keepAlive: true }
-          //     }
-          //   ]
-          // }
-        ]
-      },
+         
+      
 
       // other
       {
@@ -375,6 +318,102 @@ export const asyncRouterMap = [
             ]
           }
         ]
+      },
+      //基本信息
+      {
+        path: '/system',
+        name: 'systemuser',
+        component: () => import('@/views/system/user'),
+        //meta: { title: '基本信息', icon: 'team', permission: [ qvanxian ] },
+        meta: { title: '基本信息', icon: 'team', keepAlive: true, permission: [ qvanxian ] }
+        // redirect: '/system/user',
+        // children: [
+        //   {
+        //     path: '/system/user',
+        //     name: 'systemuser',
+        //     component: () => import('@/views/system/user'),
+        //     meta: { title: '用户管理', icon: 'tool', keepAlive: true, permission: [ qvanxian ] }
+        //   }
+          // {
+          //   path: '/other/list',
+          //   component: RouteView,
+          //   meta: { title: '业务布局', icon: 'layout', permission: [ 'support' ] },
+          //   redirect: '/other/list/tree-list',
+          //   children: [
+          //     {
+          //       path: '/other/list/tree-list',
+          //       name: 'TreeList',
+          //       component: () => import('@/views/other/TreeList'),
+          //       meta: { title: '树目录表格', keepAlive: true }
+          //     },
+          //     {
+          //       path: '/other/list/edit-table',
+          //       name: 'EditList',
+          //       component: () => import('@/views/other/TableInnerEditList'),
+          //       meta: { title: '内联编辑表格', keepAlive: true }
+          //     },
+          //     {
+          //       path: '/other/list/user-list',
+          //       name: 'UserList',
+          //       component: () => import('@/views/other/UserList'),
+          //       meta: { title: '用户列表', keepAlive: true }
+          //     },
+          //     {
+          //       path: '/other/list/role-list',
+          //       name: 'RoleList',
+          //       component: () => import('@/views/other/RoleList'),
+          //       meta: { title: '角色列表', keepAlive: true }
+          //     },
+          //     {
+          //       path: '/other/list/system-role',
+          //       name: 'SystemRole',
+          //       component: () => import('@/views/role/RoleList'),
+          //       meta: { title: '角色列表2', keepAlive: true }
+          //     },
+          //     {
+          //       path: '/other/list/permission-list',
+          //       name: 'PermissionList',
+          //       component: () => import('@/views/other/PermissionList'),
+          //       meta: { title: '权限列表', keepAlive: true }
+          //     }
+          //   ]
+          // }
+        // ]
+      },
+      //认证信息
+      {
+        path: '/authentication',
+        name: 'authentication',
+        component: () => import('@/views/authentication/index'),
+        meta: { title: '认证信息', icon: 'safety-certificate', keepAlive: true, permission: [ qvanxian ] }
+      },
+      //常用发票
+      {
+        path: '/invoice',
+        name: 'invoice',
+        component: () => import('@/views/invoice/index'),
+        meta: { title: '常用发票', icon: 'profile', keepAlive: true, permission: [ qvanxian ] }
+      },
+      //报告中心
+      {
+        path: '/report',
+        name: 'report',
+        component: () => import('@/views/report/index'),
+        meta: { title: '报告中心', icon: 'project', keepAlive: true, permission: [ qvanxian ] }
+      },
+      //订单中心
+      {
+        path: '/order',
+        name: 'order',
+        component: () => import('@/views/order/index'),
+        meta: { title: '订单中心', icon: 'exception', keepAlive: true, permission: [ qvanxian ] }
+      },
+      //发票中心
+      {
+        path: '/InvoiceCenter',
+        name: 'InvoiceCenter',
+        component: () => import('@/views/InvoiceCenter/index'),
+        meta: { title: '发票中心', icon: 'solution', keepAlive: true, permission: [ qvanxian ] }
       }
     ]
   },
